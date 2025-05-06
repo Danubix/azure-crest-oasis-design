@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -14,10 +15,14 @@ export default {
 			center: true,
 			padding: '2rem',
 			screens: {
-				'2xl': '1400px'
+				'2xl': '1440px'
 			}
 		},
 		extend: {
+			fontFamily: {
+				display: ['"Cinzel"', 'serif'],
+				body: ['"Mulish"', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,44 +57,62 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				azure: {
+					DEFAULT: '#005F9E', // Primary color - Deep Adriatic blue
+					foreground: '#FFFFFF'
+				},
+				gold: {
+					DEFAULT: '#F2C75C', // Accent color - Sun-lit gold
+					foreground: '#0D0E10'
+				},
+				neutral: {
+					0: '#FFFFFF', // Card & page backgrounds
+					1: '#F4F7FA', // Section backgrounds
+					9: '#0D0E10', // Headlines & body copy
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				'hotel': '16px', // Custom border radius
+			},
+			boxShadow: {
+				'depth-1': '0 4px 12px rgba(0, 0, 0, 0.08)',
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
+				'fade-out': {
+					'0%': { opacity: '1', transform: 'translateY(0)' },
+					'100%': { opacity: '0', transform: 'translateY(10px)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
+				'fade-out': 'fade-out 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
+			},
+			maxWidth: {
+				'hotel': '1440px', // Grid max width
+			},
+			transitionTimingFunction: {
+				'hotel': 'cubic-bezier(0.22, 1, 0.36, 1)',
+			},
+			backgroundImage: {
+				'hero-pattern': "linear-gradient(to bottom, rgba(0, 95, 158, 0.3), rgba(13, 14, 16, 0.7))",
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
